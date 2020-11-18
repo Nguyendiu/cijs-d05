@@ -1,16 +1,21 @@
 import React from "react";
 import "./App.css";
 
-function Todo({ todo, index, completeTodo, removeTodo }) {
+function Todo({ todo, index, completeTodo, removeTodo,updateTodo,text }) {
   return (
     <div
-      className="todo"
-      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+      // className="todo"
+      // style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
-      {todo.text}
+      {/* {todo.text} */}
       <div>
-        <button onClick={() => completeTodo(index)}>Complete</button>
+        <input className="todo"
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }} value={todo.text} 
+      onClick={() => completeTodo(index)}
+      onDoubleClick={() => updateTodo(index)}></input>
+        {/* <button onClick={() => completeTodo(index)}>Complete</button> */}
         <button onClick={() => removeTodo(index)}>x</button>
+        {/* <button onClick={() => updateTodo(index)}>Update</button> */}
       </div>
     </div>
   );
@@ -55,6 +60,7 @@ function App() {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
+    
   };
 
   const removeTodo = index => {
@@ -62,9 +68,10 @@ function App() {
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
-   const updateTodo = index =>{
-    const newTodo =[...todos,];
-    
+   const updateTodo = text =>{
+    const newTodos = [...todos, { text }.text];
+    // console.log(newTodos.[text].text)
+    setTodos(newTodos);
    }
   return (
     <div className="app">
