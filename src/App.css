@@ -28,6 +28,10 @@ body {
   justify-content: space-between;
   margin-bottom: 6px;
   padding: 3px 10px;
+  width: 82%;
+  float: left;
+  margin: auto;
+  grid-auto-rows: auto;
 }
 #input{
   width: 100%;
@@ -51,7 +55,7 @@ body {
 
 }
 #logout{
-
+  
 }
 #logo{
 
@@ -59,4 +63,19 @@ body {
 #form{
   width: 50%;
   float: right;
+}
+#inputlist{
+  /* width: 15%; */
+}
+#complele{
+ height: 38px;
+ width: 5%;
+}
+#del{
+  height: 38px;
+ width: 4%;
+}
+#upd{
+  height: 38px;
+  width: 6%;
 }
