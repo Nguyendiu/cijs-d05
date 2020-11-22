@@ -1,0 +1,44 @@
+.conTent{
+  width: 100%;
+}
+.header{
+  text-align: center;
+}
+.header .get-meal{
+  font-size: 24px;
+  background-color: #33C3F0;
+}
+.conTent .conTent-right{
+  width: 100%;
+  margin-left: 10%;
+  
+}
+.conTent .conTent-right .guide1{
+  width: 100%;
+ float: left;
+}
+.conTent .conTent-right .guide1 .img{
+  width: 30%;
+}
+.conTent .conTent-right .guide1 .img .img-thumb{
+  width:100%;
+  float: left;
+  margin-right: 20%;
+}
+.conTent .conTent-right .guide1 .instructions{
+  width:40%;
+  float: left;
+}
+.conTent .conTent-right .guide2{
+  width: 100%;
+}
+.conTent .conTent-right .guide2 .ingredient{
+  width: 30%;
+  float: left;
+}
+.conTent .conTent-right .guide2 .video-resource{
+  width: 67%;
+  float: left;
+  margin-left: 2%;
+  margin-top: -40px;
+}
