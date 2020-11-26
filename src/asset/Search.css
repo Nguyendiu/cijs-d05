@@ -1,0 +1,10 @@
+.search-book{
+    text-align: center;
+}
+.search-book .input{
+    font-size: 24px;
+    width: 40%;
+}
+.search-book .Search-btn{
+    font-size: 24px;
+}

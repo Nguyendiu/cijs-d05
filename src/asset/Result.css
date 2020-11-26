@@ -1,0 +1,9 @@
+.wrappall{
+    width: 100%;
+}
+.result{
+   width: 300px;
+   margin-left:10%;
+   margin-top: 5%;
+    float: left;
+}
