@@ -1,1 +1,0 @@
-'https://raw.githubusercontent.com/bebaps/react-book-finder/bcdfe3c648e54a0c3a84dc952168ba2d35118b8b/src/images/book.svg'

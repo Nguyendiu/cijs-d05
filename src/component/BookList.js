@@ -14,24 +14,6 @@ export default class BooksList extends Component {
 
             <div className="col-lg-4 col-md-6 col-sm-12 align-middle">
             <div className="card p-3 m-3 " style={cardHeight} >
-            {
-
-              // <div className="col-4 text-center p-3 ">
-              //   <div>
-              //     <img
-              //       src={item.image}
-              //       alt={item.title}
-              //       className="image-responsive"
-              //     />
-              //   </div>
-              //   <div className="">{item.title} </div>
-              //   <p>By: {item.authors}</p>
-              //   <p>Published By: {item.publisher}</p>
-              //   <a href={item.link} target="_blank">
-              //     See this Book
-              //   </a>
-              // </div>
-            }
               <img src={item.image}
               alt={item.title}
               className="card-img-top" style={imgHeight} />
