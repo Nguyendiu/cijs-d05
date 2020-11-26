@@ -1,0 +1,20 @@
+body{
+    background-color: teal;
+}
+#input-search{
+    width: 40%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    
+}
+#nameApp{
+    color:white
+}
+.row{
+    margin-top: 2%;
+    margin-left: 10%;
+}
+.row .card{
+    color: white;
+}
