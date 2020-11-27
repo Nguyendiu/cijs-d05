@@ -1,3 +1,11 @@
 .Search{
     text-align: center;
 }
+.result{
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 30%;
+}
+#img{
+    width: 400px;
+}

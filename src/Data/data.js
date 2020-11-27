@@ -1,4 +1,4 @@
-let data = {
+export const data = {
     "projects": {
         "hasNext": "true",
         "nextProjectId": "367",
