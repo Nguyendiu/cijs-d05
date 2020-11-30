@@ -1,11 +1,10 @@
-import { CharityList } from "./CharityList";
-// api url : https://sandbox.api.video
-// key_api : d4DqLvkGu1MOanHf8wZzTTQkO0QXzXhihXI0fjmoB5V
-
+// import '../assets/css/Main.css'
+import { CharityList } from './CharityList'
 export function Main(props){
-    return(
-        <div>
-            <CharityList charity ={props.charity}/>
+    console.log(props)
+    return (
+        <div className="main-area">
+            <CharityList projects={props.projects}/>
         </div>
     )
 }
