@@ -1,22 +1,22 @@
-export function Todo(props) {
-    let { title, created, content } = props
+import React from 'react'
+
+
+
+export const Todo = ({ text ,todo ,todos ,setTodos}) => {
+    const deletehandle = () => {
+        setTodos(todos.filter((el) => el.id !== todo.id));
+        // console.log(todo)
+    };
+    
     return (
-        <div className={`todo border`}>
-            <div className={`todo-title  ${props.isComplete ? 'complete' : ''}`}>
-                <h1>{title}</h1>
-                <small style={{ color: "gray" }}>{created}</small>
-            </div>
-            <div className={`todo-content ${props.isComplete ? 'complete' : ''}`}>
-                <p>{content}</p>
-            </div>
-
-            <div className="todo-function">
-                <input className="button" type="button" value="VIEW" />
-                <input className="button" type="button" value="EDIT" onClick={props.edit} />
-                <input className="button" type="button" value="COMPLETE" onClick={props.complete} />
-                <input className="button" type="button" value="REMOVE" onClick={props.remove} />
-
-            </div>
+        <div>
+            <li>
+            {text}
+            </li>
+            <button>Edit</button>
+            <button onClick={deletehandle}>Delete</button>
+           
         </div>
-    )
+    );
 }
+export default Todo;
