@@ -1,12 +1,12 @@
 import React from 'react'
 import {Todo} from './Todo'
-export const TodoList = ({todos,setTodos})=>{
+export const TodoList = ({todos,setTodos,filteredTodos})=>{
     // const [todos, setTodos] = useState([]);
     console.log(todos);
     return(
         <div>
             <ul>
-           {todos.map((todo =>(
+           {filteredTodos.map((todo =>(
                <Todo  
                key ={todo.id}
                text={todo.text}

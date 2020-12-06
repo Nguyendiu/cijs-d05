@@ -1,6 +1,6 @@
 import React from 'react'
 
- export const Form = ({setInputText,setTodos,todos, inputText}) =>{
+ export const Form = ({setInputText,setTodos,todos, inputText,setStatus}) =>{
   const inputTextHandler = (e)=> {
      setInputText(e.target.value)
 
@@ -10,13 +10,16 @@ import React from 'react'
      e.preventDefault()
       setTodos([...todos,{ text :inputText , completed: false , id : random}])
       setInputText('');
-      console.log(inputText)
+      // console.log(inputText)
    }
+   const statusHanler = (e)=>{
+    setStatus(e.target.value)
+}
     return (
        <form>
            <input value={inputText} type='text' onChange={inputTextHandler}/> 
            <button type='submit' onClick={submitTodohandler}>add</button>
-           <select>
+           <select onChange={statusHanler}>
              <option>All</option> 
              <option>Compeleted</option>
              <option>Uncompleted</option>
