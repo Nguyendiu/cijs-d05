@@ -7,26 +7,27 @@ import {Form} from './Components/Form'
   
     const [inputText,setInputText] = useState("");
     const [todos, setTodos] = useState([]);
-    const [status,setStatus] = useState('ALL');
+    const [status,setStatus] = useState('all');
     const [filteredTodos,setFilteredTodos]= useState([]);
      // use eFFect
      useEffect(()=>{
       filterHandler();
-     },[todos,status])
+     },[todos, status])
     // funtions
     const filterHandler = () =>{
       switch(status) {
-        case "completed":
-          setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        case 'completed':
+          setFilteredTodos(todos.filter(todo => todo.completed === true));
           break;
-        case "uncompleted":
-          setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        case 'uncompleted':
+          setFilteredTodos(todos.filter(todo =>todo.completed === false));
           break;
           default:
-          setFilteredTodos(todos);
-          break;
+            setFilteredTodos(todos);
+            break;
       }
     };
+   
     return (
       <div className='wrappall'>
         <div className='left-Content'>
@@ -40,13 +41,12 @@ import {Form} from './Components/Form'
             setInputText={setInputText} 
             inputText={inputText}
             setStatus={setStatus}
-            
             />
           </div>
 
         </div>
         <div className='Right-Content'>
-              <TodoList todos={todos} setTodos={setTodos} filteredTodos ={filteredTodos}/>
+              <TodoList todos={todos} setTodos={setTodos} filteredTodos={filteredTodos}/>
         </div>
       </div>
     )

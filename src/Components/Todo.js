@@ -18,7 +18,7 @@ export const Todo = ({ text ,todo ,todos ,setTodos}) => {
     };
     
     return (
-        <div >
+        <div  >
             <li className={`todo-item ${todo.completed ? 'completed':''}`}>
             {text}
             </li>

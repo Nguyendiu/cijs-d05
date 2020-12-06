@@ -19,11 +19,13 @@ import React from 'react'
        <form>
            <input value={inputText} type='text' onChange={inputTextHandler}/> 
            <button type='submit' onClick={submitTodohandler}>add</button>
+           <div>
            <select onChange={statusHanler}>
-             <option>All</option> 
-             <option>Compeleted</option>
-             <option>Uncompleted</option>
+             <option value='all'>All</option> 
+             <option value='completed'>Compeleted</option>
+             <option value='uncompleted'>Uncompleted</option>
            </select>
+           </div>
        </form>
     )
 };
