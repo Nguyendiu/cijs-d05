@@ -6,7 +6,6 @@ import {Form} from './Components/Form'
  function App() {
     const [inputText,setInputText] = useState();
     const [todos,setTodos] = useState([]);
-    
     return (
       <div className='wrappall'>
         <div className='left-Content'>
