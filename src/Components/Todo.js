@@ -16,7 +16,9 @@ export const Todo = ({ text ,todo ,todos ,setTodos}) => {
         })
         );
     };
-    
+    // const editHandler = () =>{
+    //     console.log('chua lam xong')
+    // }
     return (
         <div  >
             <li className={`todo-item ${todo.completed ? 'completed':''}`}>
@@ -24,6 +26,7 @@ export const Todo = ({ text ,todo ,todos ,setTodos}) => {
             </li>
             <button onClick={completeHanler}>Done</button>
             <button onClick={deletehandle}>Delete</button>
+            {/* <button onClick={editHandler}>Edit</button> */}
            
         </div>
     );
