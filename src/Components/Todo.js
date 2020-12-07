@@ -20,12 +20,12 @@ export const Todo = ({ text ,todo ,todos ,setTodos}) => {
     //     console.log('chua lam xong')
     // }
     return (
-        <div  >
+        <div className='to-do' >
             <li className={`todo-item ${todo.completed ? 'completed':''}`}>
             {text}
             </li>
-            <button onClick={completeHanler}>Done</button>
-            <button onClick={deletehandle}>Delete</button>
+            <button className='btn' onClick={completeHanler}>Done</button>
+            <button className='btn' onClick={deletehandle}>Delete</button>
             {/* <button onClick={editHandler}>Edit</button> */}
            
         </div>
