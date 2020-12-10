@@ -8,9 +8,13 @@ import '../asset/form.css'
    const submitTodohandler = (e) =>{
      const random = Math.floor(Math.random() * 1000);
      e.preventDefault()
-      setTodos([...todos,{ text :inputText , completed: false , id : random}])
+     if(inputText!==''){
+       console.log('ok')
+       setTodos([...todos,{ text :inputText , completed: false , id : random}])
       setInputText('');
-      // console.log(inputText)
+     }
+      
+      console.log(inputText)
    }
    const statusHanler = (e)=>{
     setStatus(e.target.value)
