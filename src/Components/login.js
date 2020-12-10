@@ -1,43 +1,30 @@
-import React from 'react'
-import '../asset/Login.css'
-export function Login() {
-    const data = [
-        {
-            email: "duy",
-            password: '123456',
-        },
-        {
-            email: "phat",
-            password: '654321',
-        },
-    ];
-    console.log(data[0].email)
-    //    const userInputHanler =(e) => {
-    //       setEmail(e.target.value)
-
-    //     }
-    // const passwordInputHandler = (e) =>{
-    //     setPassword(e.target.value)
-
-    // } 
-    // const check = () =>{
-
-    //         alert('dang nhap thanh cong')
-    // }
+import React, { useState } from "react";
+export function Formlogin({Login,error}) {
+    const [details,setDetails] = useState({name:"",email:"", password: ''});
+    const submitHanler = (e)=>{
+        e.preventDefault();
+        Login(details);
+      
+    }
+    const inputHanler= (e) =>{
+        setDetails({...details,name:e.target.value})
+    }
+    const emailHanler = (e) =>{
+        setDetails({...details,email:e.target.value})
+    }
+    const passwordHanler = e =>{
+        setDetails({...details,password:e.target.value})
+    }
     return (
-        <div className="Login">
-            <form>
-                <input
-                    type="text"
-
-                ></input>
-                <input
-                    type="text"
-
-
-                />
-                <button type="submit" >Login</button>
-            </form>
-        </div>
-    );
+        <form className="Login" onSubmit={submitHanler}>
+           <p>login</p>
+           {/*ERROR!*/}
+           <input type='text' name='name' id='name' onChange={inputHanler} value={details.name}></input>
+           <input type= 'email'name='email' id='email'onChange={emailHanler} value={details.email}></input>
+           <input type='password' onChange={passwordHanler}></input> <br></br>
+           <button>Login</button>
+           
+        </form>
+    );  
 }
+export default Formlogin;

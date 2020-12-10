@@ -1,26 +1,41 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import {Login } from './Components/login'
+import {Formlogin, Login } from './Components/login'
 import { TodoList } from './Components/TodoList'
 import { Form } from './Components/Form'
 function App() {
-  const data = [
-    {
-    email: "duy",
-    password:'123456',
-   },
-   {
-    email:"phat",
-    password:'654321',
-   },
-];
-
+  const userLogin ={
+    user:'duy',
+    emai:'duy@123',
+    pass:'123'
+  }
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
- 
- 
+  // const [username, setUserName] = useState("");
+  // const [password, setPassword] = useState("");
+  const [username, setUserName ] = useState({name: '',user:''});
+  const [error,setError] = useState("");
+ const Login = details =>{
+   console.log(details);
+   if ( details.name == userLogin.user && details.password == userLogin.pass){
+     console.log('dang nhap thanh cong')
+     setUserName({
+       name: details.name,
+       email: details.email
+     })
+   }else {
+     console.log('kiem tra lai')
+   }
+ }
+ const Logout = () => {
+   console.log(Logout)
+   setUserName({
+    name: '',
+    email: ''
+  })
+ }
   // use eFFect
   useEffect(() => {
     filterHandler();
@@ -44,8 +59,14 @@ function App() {
     <div className='wrappall'>
       <div className='left-Content'>
         <div className='login'>
-          <Login />
-          {/* <Login/> */}
+        {(username.email !=='') ? (
+                <div>
+                    <h2> wellcome {username.name} </h2>
+                    <button onClick={Logout}>logout</button>
+                </div>
+            ) :(
+                <Formlogin Login={Login} error={error}/>
+            )}
         </div>
         <div className='todo'>
           <Form
