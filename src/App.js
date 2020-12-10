@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Formlogin, Login } from './Components/login'
 import { TodoList } from './Components/TodoList'
 import { Form } from './Components/Form'
+
 function App() {
   const userLogin = {
     user: 'duy',
@@ -78,9 +79,14 @@ function App() {
 
     } else {
       let todoLocal = JSON.parse(localStorage.getItem('todos', JSON.stringify(todos)));
-      setTodos(todoLocal)
+      setTodos(todoLocal);
     }
-  }
+  };
+  
+    let d = new Date()
+    console.log(d)
+ 
+
   return (
     <div className='wrappall'>
       <div className='left-Content'>
@@ -101,7 +107,6 @@ function App() {
             setInputText={setInputText}
             inputText={inputText}
             setStatus={setStatus}
-
           />
         </div>
 

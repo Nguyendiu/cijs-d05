@@ -1,5 +1,6 @@
 import React from 'react'
 import '../asset/form.css'
+import moment, { now } from 'moment'
 export const Form = ({ setInputText, setTodos, todos, inputText, setStatus }) => {
   const inputTextHandler = (e) => {
     setInputText(e.target.value)

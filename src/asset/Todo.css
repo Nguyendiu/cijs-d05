@@ -14,3 +14,10 @@ li:hover{
 button:hover{
     background-color: orange;
 }
+#time{
+    color: yellow;
+    
+}
+li{
+    list-style: decimal-leading-zero;
+}
