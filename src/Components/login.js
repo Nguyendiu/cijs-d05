@@ -17,7 +17,7 @@ export function Formlogin({Login,error}) {
     }
     return (
         <form className="Login" onSubmit={submitHanler}>
-           <p>login</p>
+           <p>Login</p>
            {/*ERROR!*/}
            <input type='text' name='name' id='name' onChange={inputHanler} value={details.name}></input>
            <input type= 'email'name='email' id='email'onChange={emailHanler} value={details.email}></input>

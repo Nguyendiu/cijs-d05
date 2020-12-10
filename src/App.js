@@ -1,46 +1,54 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import {Formlogin, Login } from './Components/login'
+import { Formlogin, Login } from './Components/login'
 import { TodoList } from './Components/TodoList'
 import { Form } from './Components/Form'
 function App() {
-  const userLogin ={
-    user:'duy',
-    emai:'duy@123',
-    pass:'123'
+  const userLogin = {
+    user: 'duy',
+    emai: 'duy@123',
+    pass: '123'
   }
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
+
+  //run one
+  useEffect(() => {
+    getLocalTodos();
+  },[])
   // const [username, setUserName] = useState("");
   // const [password, setPassword] = useState("");
-  const [username, setUserName ] = useState({name: '',user:''});
-  const [error,setError] = useState("");
- const Login = details =>{
-   console.log(details);
-   if ( details.name == userLogin.user && details.password == userLogin.pass){
-     console.log('dang nhap thanh cong')
-     setUserName({
-       name: details.name,
-       email: details.email
-     })
-   }else {
-     console.log('kiem tra lai')
-   }
- }
- const Logout = () => {
-   console.log(Logout)
-   setUserName({
-    name: '',
-    email: ''
-  })
- }
+  const [username, setUserName] = useState({ name: '', user: '' });
+  const [error, setError] = useState("");
+  const Login = details => {
+    console.log(details);
+    if (details.name == userLogin.user && details.password == userLogin.pass) {
+      console.log('dang nhap thanh cong')
+      setUserName({
+        name: details.name,
+        email: details.email
+      })
+    } else {
+      console.log('kiem tra lai')
+      alert('Check your User again!')
+    }
+  }
+  const Logout = () => {
+    console.log(Logout)
+    setUserName({
+      name: '',
+      email: ''
+    })
+  }
   // use eFFect
   useEffect(() => {
     filterHandler();
+    savetodo()
   }, [todos, status])
   // funtions
+
   const filterHandler = () => {
     switch (status) {
       case 'completed':
@@ -54,18 +62,36 @@ function App() {
         break;
     }
   };
+  const savetodo = () => {
+    if (localStorage.getItem('todos') === null) {
 
+      localStorage.setItem('todos', JSON.stringify([]));
+
+    } else {
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }
+  }
+  const getLocalTodos = () =>{
+    if (localStorage.getItem('todos') === null) {
+
+      localStorage.setItem('todos', JSON.stringify([]));
+
+    } else {
+      let todoLocal = JSON.parse(localStorage.getItem('todos', JSON.stringify(todos)));
+      setTodos(todoLocal)
+    }
+  }
   return (
     <div className='wrappall'>
       <div className='left-Content'>
         <div className='login'>
-        {(username.email !=='') ? (
-                <div>
-                    <h2> wellcome {username.name} </h2>
-                    <button onClick={Logout}>logout</button>
-                </div>
-            ) :(
-                <Formlogin Login={Login} error={error}/>
+          {(username.name !== '') ? (
+            <div>
+              <h2> wellcome {username.name} </h2>
+              <button onClick={Logout}>logout</button>
+            </div>
+          ) : (
+              <Formlogin Login={Login} error={error} />
             )}
         </div>
         <div className='todo'>
@@ -75,6 +101,7 @@ function App() {
             setInputText={setInputText}
             inputText={inputText}
             setStatus={setStatus}
+
           />
         </div>
 
