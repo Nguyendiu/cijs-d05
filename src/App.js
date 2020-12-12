@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { Formlogin, Login } from './Components/login'
 import { TodoList } from './Components/TodoList'
 import { Form } from './Components/Form'
-import firebase from './firebase'
 
-function App() {
+ function App() {
   const userLogin = {
     user: 'duy',
     emai: 'duy@123',
@@ -15,24 +14,10 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
-  const [loading,setLoading] = useState(false)
-  const ref = firebase.firestore().collection('Todos')
-  console.log(ref)
-  function getTodos (){
-    setLoading(true)
-    ref.onSnapshot((querySnapshot) =>{
-      const items=[];
-      querySnapshot.forEach((doc)=>{
-        items.push(doc.data());
-      });
-      setTodos(items);
-      setLoading(false)
-    });
-  }
+
   //run one
   useEffect(() => {
     getLocalTodos();
-    getTodos()
   },[])
   // const [username, setUserName] = useState("");
   // const [password, setPassword] = useState("");
@@ -100,8 +85,8 @@ function App() {
   
     let d = new Date()
     console.log(d)
- 
-
+  
+  
   return (
     <div className='wrappall'>
       <div className='left-Content'>
