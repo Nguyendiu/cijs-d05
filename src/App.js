@@ -15,23 +15,24 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
-  // const [loading,setLoading] = useState(false)
-  // const ref = firebase.firestore().collection('Todos')
-  // console.log(ref)
-  // function getTodos (){
-  //   setloading(true)
-  //   ref.onSnapshot((querySnapshot) =>{
-  //     const items=[];
-  //     querySnapshot.forEach((doc)=>{
-  //       items.push(doc.data());
-  //     });
-  //     setTodos(items);
-  //     setloading(false)
-  //   });
-  // }
+  const [loading,setLoading] = useState(false)
+  const ref = firebase.firestore().collection('Todos')
+  console.log(ref)
+  function getTodos (){
+    setLoading(true)
+    ref.onSnapshot((querySnapshot) =>{
+      const items=[];
+      querySnapshot.forEach((doc)=>{
+        items.push(doc.data());
+      });
+      setTodos(items);
+      setLoading(false)
+    });
+  }
   //run one
   useEffect(() => {
     getLocalTodos();
+    getTodos()
   },[])
   // const [username, setUserName] = useState("");
   // const [password, setPassword] = useState("");
