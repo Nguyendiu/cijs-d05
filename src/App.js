@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Formlogin, Login } from './Components/login'
 import { TodoList } from './Components/TodoList'
 import { Form } from './Components/Form'
+import firebase from './firebase'
 
 function App() {
   const userLogin = {
@@ -14,7 +15,20 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
-
+  // const [loading,setLoading] = useState(false)
+  // const ref = firebase.firestore().collection('Todos')
+  // console.log(ref)
+  // function getTodos (){
+  //   setloading(true)
+  //   ref.onSnapshot((querySnapshot) =>{
+  //     const items=[];
+  //     querySnapshot.forEach((doc)=>{
+  //       items.push(doc.data());
+  //     });
+  //     setTodos(items);
+  //     setloading(false)
+  //   });
+  // }
   //run one
   useEffect(() => {
     getLocalTodos();

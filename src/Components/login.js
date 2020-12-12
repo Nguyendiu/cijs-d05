@@ -19,9 +19,9 @@ export function Formlogin({Login,error}) {
         <form className="Login" onSubmit={submitHanler}>
            <p>Login</p>
            {/*ERROR!*/}
-           <input type='text' name='name' id='name' onChange={inputHanler} value={details.name}></input>
-           <input type= 'email'name='email' id='email'onChange={emailHanler} value={details.email}></input>
-           <input type='password' onChange={passwordHanler}></input> <br></br>
+           <input type='text' name='name' id='name' onChange={inputHanler} value={details.name} placeholder="User...."></input>
+           <input type= 'email'name='email' id='email'onChange={emailHanler} value={details.email} placeholder='Email....'></input>
+           <input type='password' onChange={passwordHanler} placeholder='Pass....'></input> <br></br>
            <button>Login</button>
            
         </form>

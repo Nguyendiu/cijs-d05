@@ -12,7 +12,8 @@ export const TodoList = ({todos,setTodos,filteredTodos})=>{
                text={todo.text}
                todo={todo}
                todos={todos} 
-               setTodos={setTodos}/>
+               setTodos={setTodos}
+               />
            )))}
             </ul>
         </div>
