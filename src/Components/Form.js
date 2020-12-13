@@ -1,16 +1,5 @@
 import React from 'react'
 import '../asset/form.css'
-import moment, { now } from 'moment'
-import firebase from 'firebase'
-import { firebaseConfig } from '../firebase/firebaseConfig'
-try {
-  firebase.initializeApp(firebaseConfig);
-} catch (e) {
-  console.log(e.message)
-}
-
-
-const db = firebase.firestore();
 
 export const Form = ({ setInputText, setTodos, todos, inputText, setStatus }) => {
   const inputTextHandler = (e) => {
@@ -18,11 +7,7 @@ export const Form = ({ setInputText, setTodos, todos, inputText, setStatus }) =>
 
   };
   const submitTodohandler = (e) => {
-    db.collection('Todos').add({
-      text: inputText,
-      id: Math.floor(Math.random() * 1000)
-
-    })
+    
     const random = Math.floor(Math.random() * 1000);
     e.preventDefault()
     if (inputText !== '') {
