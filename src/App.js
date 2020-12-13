@@ -3,6 +3,16 @@ import React, { useState, useEffect } from 'react'
 import { Formlogin, Login } from './Components/login'
 import { TodoList } from './Components/TodoList'
 import { Form } from './Components/Form'
+import firebase from 'firebase'
+import { firebaseConfig } from './firebase/firebaseConfig'
+try {
+  firebase.initializeApp(firebaseConfig);
+} catch (e) {
+  console.log(e.message)
+}
+
+
+const db = firebase.firestore();
 
  function App() {
   const userLogin = {
@@ -23,6 +33,19 @@ import { Form } from './Components/Form'
   // const [password, setPassword] = useState("");
   const [username, setUserName] = useState({ name: '', user: '' });
   const [error, setError] = useState("");
+  let docRef = db.collection("User").doc("duy");
+
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+    console.log(docRef)
   const Login = details => {
     console.log(details);
     if (details.name == userLogin.user && details.password == userLogin.pass) {
@@ -35,7 +58,8 @@ import { Form } from './Components/Form'
       console.log('kiem tra lai')
       alert('Check your User again!')
     }
-  }
+  };
+  
   const Logout = () => {
     console.log(Logout)
     setUserName({
