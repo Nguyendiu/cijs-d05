@@ -4,7 +4,6 @@ import 'firebase/firestore'
 import { firebaseConfig } from '../firebase/firebaseConfig'
 
 
-
 try {
     firebase.initializeApp(firebaseConfig);
 } catch (e) {
