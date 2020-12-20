@@ -1,10 +1,21 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import { Formlogin, Login } from './Components/login'
+import { Formlogin,checkUser, submitHanler } from './Components/login'
 import { TodoList } from './Components/TodoList'
 import { Form } from './Components/Form'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+// import { firebaseConfig } from '../firebase/firebaseConfig'
+import { firebaseConfig } from './firebase'
 
- function App() {
+try {
+  firebase.initializeApp(firebaseConfig);
+} catch (e) {
+  console.log(e.message)
+}
+
+const db = firebase.firestore();
+function App() {
   const userLogin = {
     user: 'duy',
     emai: 'duy@123',
@@ -18,24 +29,12 @@ import { Form } from './Components/Form'
   //run one
   useEffect(() => {
     getLocalTodos();
-  },[])
+  }, [])
   // const [username, setUserName] = useState("");
   // const [password, setPassword] = useState("");
   const [username, setUserName] = useState({ name: '', user: '' });
   const [error, setError] = useState("");
-  const Login = details => {
-    console.log(details);
-    if (details.name == userLogin.user && details.password == userLogin.pass) {
-      console.log('dang nhap thanh cong')
-      setUserName({
-        name: details.name,
-        email: details.email
-      })
-    } else {
-      console.log('kiem tra lai')
-      alert('Check your User again!')
-    }
-  }
+  
   const Logout = () => {
     console.log(Logout)
     setUserName({
@@ -72,7 +71,7 @@ import { Form } from './Components/Form'
       localStorage.setItem('todos', JSON.stringify(todos))
     }
   }
-  const getLocalTodos = () =>{
+  const getLocalTodos = () => {
     if (localStorage.getItem('todos') === null) {
 
       localStorage.setItem('todos', JSON.stringify([]));
@@ -82,22 +81,22 @@ import { Form } from './Components/Form'
       setTodos(todoLocal);
     }
   };
-  
-    let d = new Date()
-    console.log(d)
-  
-  
+
+  let d = new Date()
+  console.log(d)
+
   return (
     <div className='wrappall'>
       <div className='left-Content'>
         <div className='login'>
-          {(username.name !== '') ? (
+          {(username.name!== '') ? (
             <div>
               <h2> wellcome {username.name} </h2>
+             
               <button onClick={Logout}>logout</button>
             </div>
           ) : (
-              <Formlogin Login={Login} error={error} />
+              <Formlogin   error={error} />
             )}
         </div>
         <div className='todo'>
@@ -107,6 +106,7 @@ import { Form } from './Components/Form'
             setInputText={setInputText}
             inputText={inputText}
             setStatus={setStatus}
+          
           />
         </div>
 

@@ -1,7 +1,7 @@
-import firebase from 'firebase'
-import 'firebase/firestore';
+// import firebase from 'firebase'
+// import 'firebase/firestore';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyC0zr4j6qd8ce8zA2C33mRnKzKLO9OkVyQ",
   authDomain: "do-an-ci.firebaseapp.com",
   projectId: "do-an-ci",
@@ -9,5 +9,5 @@ const firebaseConfig = {
   messagingSenderId: "819222334225",
   appId: "1:819222334225:web:7d4731d95fba034288dab0"
   };
-  firebase.initializeApp(firebaseConfig);
-export default firebase;
+  // firebase.initializeApp(firebaseConfig);
+// export default firebase;
