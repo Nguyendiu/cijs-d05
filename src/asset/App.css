@@ -5,4 +5,44 @@
    
     margin-top: 10%;
     
-}
+}body{
+    width:  100%;
+    height: 100%;
+    background-color:cadetblue;
+  }
+  .wrappall{
+    width: 100%;
+    float: left;
+    background-color:cadetblue;
+    height: 100%;
+  }
+  .wrappall .left-Content{
+    margin-left: 2%;
+    margin-top: 1%;
+    width:25%;
+    background-color:cadetblue;
+    height: 100%;
+    float: left;
+    height: 100%;
+    /* border-right: solid 10px orange; */
+  }
+  .wrappall .left-Content .login{
+   
+  }
+  .wrappall .left-Content .todo{
+   margin-bottom: 1%;
+  }
+  .wrappall .Right-Content{
+    width: 70%;
+    height: 1200px;
+    margin-left:0%;
+    float: left;
+    background-color: cadetblue;
+    border-left:solid  2px  orange;
+    margin-top: 1px;
+  
+  }
+  .wrappall .Right-Content .title-rightContent{
+    text-align:center;
+    color: white;
+  }

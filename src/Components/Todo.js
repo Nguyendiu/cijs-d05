@@ -1,5 +1,5 @@
 import React from 'react'
-// import '../asset/Todo.css'
+import '../asset/Todo.css'
 
 
 export const Todo = ({ text ,todo ,todos ,setTodos}) => {
@@ -22,7 +22,7 @@ export const Todo = ({ text ,todo ,todos ,setTodos}) => {
     
     return (
         <div className='to-do'>
-            <li>
+            <li className={`todo-item ${todo.completed ? 'completed':''}`}>
             {text} 
             </li>
             {/* <p id='time'>{(new Date()).toLocaleString()}</p> */}
