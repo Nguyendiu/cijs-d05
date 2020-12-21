@@ -25,10 +25,10 @@ const Login = (props) => {
                 <div className='btnContainer'>
                     {hasAccount ? (
                         <div className='check'>
-                            <button variant="contained" color="primary" onClick={handlerLogin}>Sign In</button>
+                            <button id='btnSignIn' onClick={handlerLogin}>Sign In</button>
 
                             <p> Don't have an account?
-                            <button onClick={() => setHasAccount(!hasAccount)} onClick={() => setHasAccount(!hasAccount)} >Sign Up</button>
+                            <button id='btnSignUp' onClick={() => setHasAccount(!hasAccount)} onClick={() => setHasAccount(!hasAccount)} >Sign Up</button>
                             </p>
                         </div>
                     ) : (
@@ -36,7 +36,7 @@ const Login = (props) => {
                                 <button  id='btnSignUp' onClick={handleSignUp}>Sign Up</button>
 
                                 <p>Have an account?
-                           <button onClick={() => setHasAccount(!hasAccount)}>Sign In</button></p>
+                             <button id='btnSignIn' onClick={() => setHasAccount(!hasAccount)}>Sign In</button></p>
                             </div>
                         )}
                 </div>

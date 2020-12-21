@@ -3,6 +3,7 @@ import './asset/App.css'
 import fire from './FirebaseConfig';
 import Login from './Components/Login'
 import Hero from './Components/Hero'
+import Todo from './Components/Todo'
 
 const App = () => {
   const [user, setUser] = useState('');
@@ -11,6 +12,7 @@ const App = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
+  const [ todos,setTodo] = useState('');
 
 
 
@@ -74,12 +76,21 @@ const App = () => {
   useEffect(() => {
     authListener();
   }, []);
-
+  
 
   return (
     <div class ='App'>
       {user ? (
-        <Hero handleLogOut ={handleLogOut} />
+        <div>
+        <Hero 
+        handleLogOut ={handleLogOut} />
+        ,
+         <Todo 
+        todos={todos}
+        setTodo ={setTodo}
+        />
+        </div>
+
       ) : (
           <Login
             email={email}

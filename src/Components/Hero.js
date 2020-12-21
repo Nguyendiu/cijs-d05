@@ -1,7 +1,10 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
+import userEvent from '@testing-library/user-event';
+import fire from '../FirebaseConfig';
 
-const Hero = ({handleLogOut}) =>{
+const Hero = ({handleLogOut,todos,setTodo}) =>{
+    
     return(
         <section className = 'hero'>
             <nav>
@@ -9,6 +12,7 @@ const Hero = ({handleLogOut}) =>{
                 
                 <button onClick={handleLogOut}>Logout</button>
             </nav>
+
         </section>
     )
 }
