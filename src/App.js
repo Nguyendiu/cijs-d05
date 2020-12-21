@@ -3,7 +3,9 @@ import './asset/App.css'
 import fire from './FirebaseConfig';
 import Login from './Components/Login'
 import Hero from './Components/Hero'
-import Todo from './Components/Todo'
+// import Todo from './Components/Todo'
+import Form from './Components/Form'
+import TodoList from './Components/TodoList'
 
 const App = () => {
   const [user, setUser] = useState('');
@@ -12,7 +14,10 @@ const App = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
-  const [ todos,setTodo] = useState('');
+  const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState('all');
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
 
 
@@ -74,21 +79,64 @@ const App = () => {
     })
   };
   useEffect(() => {
+    getLocalTodos();
+  }, [])
+  useEffect(() => {
     authListener();
+    
   }, []);
-  
+  useEffect(() => {
+    filterHandler();
+    savetodo()
+  }, [todos, status])
+  const filterHandler = () => {
+    switch (status) {
+      case 'completed':
+        setFilteredTodos(todos.filter(todo => todo.completed === true));
+        break;
+      case 'uncompleted':
+        setFilteredTodos(todos.filter(todo => todo.completed === false));
+        break;
+      default:
+        setFilteredTodos(todos);
+        break;
+    }
+  };
+  const savetodo = () => {
+    if (localStorage.getItem('todos') === null) {
 
+      localStorage.setItem('todos', JSON.stringify([]));
+
+    } else {
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }
+  }
+  const getLocalTodos = () => {
+    if (localStorage.getItem('todos') === null) {
+
+      localStorage.setItem('todos', JSON.stringify([]));
+
+    } else {
+      let todoLocal = JSON.parse(localStorage.getItem('todos', JSON.stringify(todos)));
+      setTodos(todoLocal);
+    }
+  };
   return (
     <div class ='App'>
       {user ? (
         <div>
-        <Hero 
-        handleLogOut ={handleLogOut} />
-        ,
-         <Todo 
-        todos={todos}
-        setTodo ={setTodo}
-        />
+            <Form
+            todos={todos}
+            setTodos={setTodos}
+            setInputText={setInputText}
+            inputText={inputText}
+            setStatus={setStatus}
+            handleLogOut={handleLogOut}
+            />
+             <div className='Right-Content'>
+            <h2 className='title-rightContent'>TODO</h2>
+             <TodoList todos={todos} setTodos={setTodos} filteredTodos={filteredTodos} />
+      </div>
         </div>
 
       ) : (
@@ -104,6 +152,7 @@ const App = () => {
             emailError={emailError}
             passwordError={passwordError}
           />
+         
         )}
 
 

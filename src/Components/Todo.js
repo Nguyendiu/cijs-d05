@@ -1,20 +1,36 @@
 import React from 'react'
+// import '../asset/Todo.css'
 
 
-const Todo = (todos,setTodo) =>{
-   
-    return(
-        <div className= 'todo'>
-            <label>What's todo ?</label>
-            <input type= 'text'
-            autoFocus
-            required
-            onChange={e=> setTodo(e.target.value)}
-            ></input>
-            <label>Name</label>
-            <input  type='text'></input>
-            <button>Add</button>
+export const Todo = ({ text ,todo ,todos ,setTodos}) => {
+    const deletehandle = () => {
+        setTodos(todos.filter((el) => el.id !== todo.id));
+        // console.log(todo)
+    };
+    const completeHanler = () =>{
+        setTodos(todos.map((item)=>{
+            if(item.id === todo.id){
+                return{...item, completed: !item.completed,};    
+            }
+            return item ;
+        })
+        );
+    };
+    // const editHandler = () =>{
+    //     console.log('chua lam xong')
+    // }
+    
+    return (
+        <div className='to-do'>
+            <li>
+            {text} 
+            </li>
+            {/* <p id='time'>{(new Date()).toLocaleString()}</p> */}
+            <button className='btn' onClick={completeHanler}>Done</button>
+            <button className='btn' onClick={deletehandle}>Delete</button>
+            {/* <button onClick={editHandler}>Edit</button> */}
+           
         </div>
-    )
+    );
 }
 export default Todo;
