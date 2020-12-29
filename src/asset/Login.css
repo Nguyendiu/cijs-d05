@@ -1,17 +1,30 @@
 .login{
-    margin-top: 10%
+    margin-top: 5%;
+    text-align: center;
+    width: 200px;
+    margin-left: 43%;
+    border: solid 5px orange;
+    color: black;
 }
 .login .loginContainer .btnContainer .check{
 
 }  
 #btnSignUp{
     float: left;
-    margin-left: 40%;
-    
+    margin-left:32%;
+    /* background-color:rgb(18, 146, 140); */
+    /* color: white; */
+   
 } 
+#btnSignUp:hover{
+    color:green;
+}
+#btnSignIn:hover{
+    color:green;
+}
 #btnSignIn{
-   margin-right: 40%;
-    float: right;
+    /* background-color:rgb(18, 146, 140); */
+    margin-right:10%;
 }
 #userInput:hover {
  border-right: none;
@@ -25,7 +38,4 @@
 }
 .clear{
     clear: both;
-}
-.login{
-   border-bottom: solid 2px orange; 
 }

@@ -1,0 +1,30 @@
+.form{
+    margin-top:-8%;
+}
+
+
+
+.form .logout{
+    float: left;
+    margin-top: 0;
+    width: 15%;
+    float: left;
+}
+.form .todo{
+width: 85%;
+float: left;
+}
+#inputTodos{
+    width: 500px;
+}
+li:hover{
+    background-color: rgb(135, 240, 240);
+    animation-duration: inherit;
+ }
+ li{
+    list-style: decimal-leading-zero;
+}
+.completed{
+    text-decoration:line-through ;
+    color: red;
+}

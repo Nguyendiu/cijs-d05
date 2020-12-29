@@ -1,6 +1,6 @@
 import React from 'react'
 // import Button from '@material-ui/core/Button'
-// import '../asset/Login.css'
+import '../asset/Login.css'
 
 const Login = (props) => {
     const { email, setEmail, password, setPassword, handlerLogin, handleSignUp, hasAccount, setHasAccount, emailError, passwordError } = props;
@@ -25,18 +25,19 @@ const Login = (props) => {
                 <div className='btnContainer'>
                     {hasAccount ? (
                         <div className='check'>
-                            <button id='btnSignIn' onClick={handlerLogin}>Sign In</button>
+                            <button id='btnSignUp' onClick={handleSignUp}>Sign Up</button> <br />
 
-                            <p> Don't have an account?
-                            <button id='btnSignUp' onClick={() => setHasAccount(!hasAccount)} onClick={() => setHasAccount(!hasAccount)} >Sign Up</button>
-                            </p>
+                            <p>Have an account?
+                            <button id='btnSignIn' onClick={() => setHasAccount(!hasAccount)}>Sign In</button></p>
+
                         </div>
                     ) : (
                             <div className='check'>
-                                <button  id='btnSignUp' onClick={handleSignUp}>Sign Up</button>
+                                <button id='btnSignIn' onClick={handlerLogin}>Sign In</button>
 
-                                <p>Have an account?
-                             <button id='btnSignIn' onClick={() => setHasAccount(!hasAccount)}>Sign In</button></p>
+                                <p> Don't have an account?
+                              <button id='btnSignUp' onClick={() => setHasAccount(!hasAccount)} onClick={() => setHasAccount(!hasAccount)} >Sign Up</button>
+                                </p>
                             </div>
                         )}
                 </div>

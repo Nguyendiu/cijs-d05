@@ -1,5 +1,5 @@
 import React from 'react'
-import '../asset/Todo.css'
+// import '../asset/Todo.css'
 
 
 export const Todo = ({ text ,todo ,todos ,setTodos}) => {
@@ -33,4 +33,5 @@ export const Todo = ({ text ,todo ,todos ,setTodos}) => {
         </div>
     );
 }
+
 export default Todo;

@@ -121,6 +121,7 @@ const App = () => {
       setTodos(todoLocal);
     }
   };
+  
   return (
     <div class ='App'>
       {user ? (
@@ -134,7 +135,7 @@ const App = () => {
             handleLogOut={handleLogOut}
             />
              <div className='Right-Content'>
-            <h2 className='title-rightContent'>TODO</h2>
+            {/* <h2 className='title-rightContent'>TODO</h2> */}
              <TodoList todos={todos} setTodos={setTodos} filteredTodos={filteredTodos} />
       </div>
         </div>
