@@ -31,7 +31,7 @@ class App extends React.Component {
             <div className='text' contentEditable='true' spellCheck='false'>10k</div>
           </li>
           <li>
-            <div className='text' contentEditable='true' spellCheck='false'>mất lượt</div>
+            <div className='text' contentEditable='true' spellCheck='false'><img src='https://hayhochoi.vn/uploads/news/wyswyg/2019_05/1556963513cq8miejnsa.gif'></img></div>
           </li>
           <li>
             <div className='text' contentEditable='true' spellCheck='false'>20k</div>
@@ -40,13 +40,13 @@ class App extends React.Component {
             <div className='text' contentEditable='true' spellCheck='false'>10k</div>
           </li>
           <li>
-            <div className='text' contentEditable='true' spellCheck='false'>0</div>
+            <div className='text' contentEditable='true' spellCheck='false'><img src='https://hayhochoi.vn/uploads/news/wyswyg/2019_05/1556971280i0h7eqahud.gif'></img></div>
           </li>
           <li>
             <div className='text' contentEditable='true' spellCheck='false'>100k</div>
           </li>
           <li>
-            <div className='text' contentEditable='true' spellCheck='false'>mất lượt</div>
+            <div className='text' contentEditable='true' spellCheck='false'><img width='20%' src='https://hayhochoi.vn/uploads/news/wyswyg/2019_05/1556971277hh7hrnudwo.gif'></img></div>
           </li>
           <li>
             <div className='text' contentEditable='true' spellCheck='false'>50k</div>
@@ -61,7 +61,7 @@ class App extends React.Component {
 
         </ul>
         <button className='roll' onClick={this.startRoll}>Quay</button>
-      </div>
+      </div >
     )
   }
 }
